@@ -1,0 +1,21 @@
+# Local OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Local configuration, logs and source archives
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+
+# Optional local tooling (the application needs no dependencies/build)
+node_modules/
+.venv/
+__pycache__/
+playwright-report/
+test-results/
