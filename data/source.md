@@ -1,0 +1,1 @@
+Data převzata z uživatelem dodaného HYBRID_Forge_plan_2026-10-01_to_2026-12-31_hips.xlsx: listy TRÉNINKOVÝ PLÁN (92 dní) a KNIHOVNA CVIKŮ (26 cviků). Texty tréninků a technických poznámek jsou zachovány. Prázdné dny 28.–30. 9. doplněny pro pondělní začátek týdne. Listy INPUT a ANALYTICS se neimportují. Data v JS jsou statická; aplikace nepotřebuje Excel ani build.

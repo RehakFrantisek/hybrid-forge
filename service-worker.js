@@ -1,7 +1,8 @@
+importScripts('./data/exercises.js');
 // Increment the version whenever a cached application asset changes.
 const PREFIX = 'hybrid-forge:' + self.registration.scope;
-const CACHE = PREFIX + ':v1';
-const ASSETS = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png'];
+const CACHE = PREFIX + ':v2';
+const ASSETS = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './data/plan.js', './data/exercises.js', './exercises.js', ...EXERCISES.map(exercise => './' + exercise.image)];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
 });

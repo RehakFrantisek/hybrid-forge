@@ -1,0 +1,1 @@
+26 původních schematických SVG ilustrací vytvořených pro Hybrid Forge. Neobsahují fotografie ani převzaté internetové obrázky; externí atribuce není potřeba. Zobrazují orientační polohu, nikoli kompletní pohybovou sekvenci. Názvy a technické poznámky pocházejí z uživatelem dodané knihovny cviků. Šedé prvky značí oporu či vybavení.

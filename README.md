@@ -18,7 +18,10 @@ V prohlížeči otevřete `http://localhost:8000`. Neotevírejte přímo `index.
 ## Struktura
 
 - `index.html` — stránka aplikace a dialog úpravy tréninku.
-- `app.js` — původní tréninkový plán, kalendář, stav a JSON zálohy.
+- `app.js` — kalendář, stav a JSON zálohy.
+- `data/plan.js` — aktualizovaný plán 1. 10.–31. 12. 2026 z Excelu.
+- `data/exercises.js` a `exercises.js` — knihovna 26 cviků, hledání a propojení tréninků.
+- `assets/exercises/` — původní SVG ilustrace, dostupné také offline.
 - `style.css` — desktopový a mobilní vzhled.
 - `manifest.webmanifest` — název, rozsah a ikony instalovatelné PWA.
 - `service-worker.js` — offline cache souborů aplikace.
@@ -48,3 +51,15 @@ node --check service-worker.js
 Přes lokální HTTP server ověřte první týden, navigaci, Done / Undo, editaci, přehled, zachování stavu po obnovení a export/import. Neplatný import nesmí přepsat data. Zkontrolujte mobilní i desktopové rozměry, načtení všech souborů a offline obnovení po aktivaci workeru. Při mazání tréninku zůstává datum v kalendáři, aby se neposunuly týdny.
 
 Projekt nemá framework, build proces, backend, autentizaci ani cloudovou synchronizaci. GitHub repozitář je zdrojem pravdy pro další vývoj.
+
+## Cviky a aktualizovaný plán
+
+Záložka **Cviky** obsahuje všech 26 cviků z listu KNIHOVNA CVIKŮ dodaného Excelu. Hledání funguje podle názvu, kategorie a partie i bez diakritiky. Kliknutí na podtržený cvik v kalendáři otevře detail se schematickou ilustrací a původní technickou poznámkou. Varianty kliků, planku a přítahů odkazují na základní cvik. Běžecké úseky a obecné bloky mobility bez záznamu v dodané knihovně zůstávají textem.
+
+Obrázky jsou původní lokální SVG schémata orientační polohy, nikoli fotografické návody ani kompletní pohybové sekvence. Aplikace nestahuje obrázky z cizích serverů. Původ dat je popsán v `data/source.md`; měření z listů INPUT a ANALYTICS se neimportují.
+
+Nová instalace používá plán do 31. 12. 2026. Pokud už existuje uložený plán, aplikace jej **automaticky nepřepíše**. V kalendáři nabídne „Použít nový plán“. Po potvrzení nejprve uloží původní stav do samostatné zálohy localStorage, poté nahradí tréninky a zachová označení Done podle dat. Zálohu lze stáhnout v Nastavení přes „Export plánu před aktualizací“ a obnovit standardním JSON importem. Vlastní úpravy tréninků zůstávají v záloze, nepřenášejí se do nového plánu. Při nedostatku místa se aktualizace neprovede.
+
+## Automatické ověření
+
+Volitelný test `python3 tests/smoke.py` vyžaduje Python balíček Playwright a Chromium (výchozí `/usr/bin/chromium`, lze změnit proměnnou `CHROMIUM_PATH`). Testuje knihovnu, obrázky, hledání, mobilní layout, aktualizaci plánu se zálohou, zachování dat a offline načtení pod podadresářem. Testovací nástroje nejsou závislostí aplikace ani podmínkou nasazení.
